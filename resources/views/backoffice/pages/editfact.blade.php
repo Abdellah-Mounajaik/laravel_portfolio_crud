@@ -9,7 +9,7 @@
         <label for="icon">icon :</label><br>
         <input type="text" name="icon" value="{{$facts->icon}}" ><br>
         <label for="nom ">nom:</label><br>
-        <input type="text" name="nom" value="{{$facts->nom}}"  ><br>
+        <input type="text" name="nom" value="{{$facts->nom}}"><br>
         <label for="chiffre">chiffre :</label><br>
         <input type="text" name="chiffre" value="{{$facts->chiffre}}"  ><br><br>
         <button type="submit">Enregistrer</button>
