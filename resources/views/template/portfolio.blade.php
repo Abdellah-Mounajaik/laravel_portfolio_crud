@@ -22,28 +22,17 @@
         @foreach ($portfolios as $portfolios)
         <div class="col-lg-4 col-md-6 portfolio-item {{$portfolios->filter}}">
           <div class="portfolio-wrap">
-            <img src={{asset($portfolios->img)}} class="img-fluid" alt="">
-            <div class="portfolio-links">
-              <a href= {{asset($portfolios->img)}} data-gall="portfolioGallery" class="venobox" title=" {{$portfolios->title}}"><i class="bx bx-plus"></i></a>
-              <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-            </div>
-          </div>
-        </div>
-        @endforeach
-  
-        @foreach ($ports as $port)
-        <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-          <div class="portfolio-wrap">
-            <img src={{asset($port->image)}} class="img-fluid" alt="">
-            <div class="portfolio-links">
-              <a href= {{asset($port->image)}} data-gall="portfolioGallery" class="venobox" title="App 1"><i class="bx bx-plus"></i></a>
-              <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-            </div>
-          </div>
-        </div>
-        @endforeach
 
-       
+            {{-- <img src={{asset($portfolios->img)}} class="img-fluid" alt=""> --}}
+            <img src={{asset('img/portfolio/' . $portfolios->img)}} class="img-fluid" alt="">
+
+            <div class="portfolio-links">
+              <a href= {{asset('img/portfolio/' . $portfolios->img)}} data-gall="portfolioGallery" class="venobox" title=" {{$portfolios->title}}"><i class="bx bx-plus"></i></a>
+              <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+            </div>
+          </div>
+        </div>
+        @endforeach
         
 
       </div>

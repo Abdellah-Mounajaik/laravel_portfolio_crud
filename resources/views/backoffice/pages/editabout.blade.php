@@ -1,9 +1,11 @@
 @extends('layouts.back')
 @section('back')
     <h1 class="text-center my-3">Modifier le profil</h1>
-    <form class="container" method="POST" action="{{route('about.update', $about->id)}}">
+    <form class="container" enctype="multipart/form-data" method="POST" action="{{route('about.update', $about->id)}}">
         @csrf
         @method('PUT')
+        <label class="mt-4" for="img">Ajouter une image :</label> <br>
+        <input type="file" name="img"><br><br>
         <label for="birthday"> Birthday :</label><br>
         <input type="text" name="birthday" class="@error('birthday') is-invalid @enderror form-control" value="{{$about->birthday}}" value="{{old('birthday')}}"><br>
         @error('birthday')

@@ -7,14 +7,14 @@
         @csrf
         @method('PUT')
         <label for="competence">competence :</label><br>
-        <input type="text" name="competence" class="@error('competence') is-invalid @enderror" value="{{$skills->competence}}" value="{{old('competence')}}" ><br>
+        <input class="form-control" type="text" name="competence" class="@error('competence') is-invalid @enderror" value="{{$skills->competence}}" value="{{old('competence')}}" ><br>
         @error('competence')
             <span class="invalid-feedback">
                 <strong>{{$message}}</strong>
             </span>
         @enderror
         <label for="niveau">niveau :</label><br>
-        <input type="text" name="niveau" class="@error('niveau') is-invalid @enderror" value="{{$skills->niveau}}" value="{{old('niveau')}}"><br>
+        <input class="form-control" type="text" name="niveau" class="@error('niveau') is-invalid @enderror" value="{{$skills->niveau}}" value="{{old('niveau')}}"><br>
         @error('niveau')
             <span class="invalid-feedback">
                 <strong>{{$message}}</strong>

@@ -7,6 +7,7 @@ use App\Models\Contact;
 use App\Models\Fact;
 use App\Models\Port;
 use App\Models\Portfolio;
+use App\Models\Profil;
 use App\Models\Service;
 use App\Models\Skills;
 use Database\Seeders\AboutSeeder;
@@ -19,9 +20,9 @@ class Allcontroller extends Controller
         $facts = Fact::all();
         $skills = Skills::all();
         $portfolios = Portfolio::all();
-        $ports = Port::all();
-        $services = Service::all();
+        $services = Service::paginate(4)->fragment('services');
         $contacts = Contact::all();
-        return view('home', compact("about", "facts", "services", "skills", "portfolios", "ports", "contacts"));
+        $profils = Profil::all();
+        return view('home', compact("about", "facts", "services", "skills", "portfolios", "contacts", "profils"));
     }
 }

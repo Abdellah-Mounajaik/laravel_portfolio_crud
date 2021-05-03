@@ -26,4 +26,18 @@ class SkillsController extends Controller
         $skills->save();
         return redirect()->route('back.skills')->with("success", "La modification a bien été éxécuté");
     }
+    public function destroy(Skills $id){
+        $id->delete();
+        return redirect()->back();
+    }
+    public function create(){
+        return view('backoffice/pages/createskills');
+    }
+    public function store(Request $request){
+        $skills = new Skills();
+        $skills->competence =  $request->competence;
+        $skills->niveau =  $request->niveau;
+        $skills->save();
+        return redirect()->route('back.skills');
+    }
 }

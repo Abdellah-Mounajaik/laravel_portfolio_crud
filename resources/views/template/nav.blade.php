@@ -2,7 +2,9 @@
     <div class="d-flex flex-column">
 
       <div class="profile">
-        <img src={{asset("/img/profile-img.jpg")}} alt="" class="img-fluid rounded-circle">
+        @foreach ($profils as $profil)
+        <img src={{asset("img/" . $profil->image)}} alt="" class="img-fluid rounded-circle">
+        @endforeach
         <h1 class="text-light"><a href="index.html">Alex Smith</a></h1>
         <div class="social-links mt-3 text-center">
           <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>

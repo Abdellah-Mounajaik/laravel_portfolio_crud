@@ -12,7 +12,9 @@
           <div class="card container mt-3 mb-3" style="max-width: 540px;">
             <div class="row no-gutters">
               <div class="col-md-4">
-                <img src="{{asset($about->image)}}" class="card-img mt-5" alt="...">
+                <img src="{{asset('img/' . $about->image)}}" class="card-img mt-5" alt="...">
+                {{-- <img src={{asset('img/' . $about->imag)}} class="img-fluid" alt=""> --}}
+
               </div>
               <div class="col-md-8">
                 <div class="card-body">
@@ -37,22 +39,37 @@
           @endforeach
             
         </section><!-- End About Section -->
+        <h1 class="text-center">Image nav</h1>
+        @foreach ($profils as $profil)
+        <div class="text-center">
+          <img width="15%"  src={{asset("img/" . $profil->image)}} alt="" class="img-fluid rounded-circle">
+
+        </div>
+        <div class="text-center">
+          <button class="btn btn-primary mt-3"><a class="text-white" href="{{route('nav.edit', $profil->id)}}">Modifier</a></button>
+        </div>    
+        @endforeach
+        
         <!-- ======= Facts Section ======= -->
 <section id="facts" class="facts">
   <div class="container">
 
-      <h2 class="text-center my-4">Facts</h2>
-
+      <h2 class="text-center my-5">Facts</h2>
+      <a href="{{route('fact.create')}}">Ajouter un fact</a>
     <div class="row no-gutters">
       @foreach ($facts as $facts)
 
-      <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch" data-aos="fade-up">
+      <div class="col-lg-3 my-5 col-md-6 d-md-flex align-items-md-stretch" data-aos="fade-up">
         <div class="count-box">
           <i class={{$facts->icon}}></i>
           <span data-toggle="counter-up">{{$facts->chiffre}}</span>
           <p><strong>{{$facts->nom}}</strong> consequuntur quae</p>
           <button class="btn btn-primary" type="submit"><a class="text-white" href="{{route('fact.edit', $facts->id)}}">Modifier</a></button>
-
+          <form method="POST" action="{{route('fact.delete', $facts->id)}}">
+            @csrf
+            @method('DELETE')
+            <button class="btn btn-danger my-3">Supprimer</button>
+          </form>
         </div>
       </div>
 

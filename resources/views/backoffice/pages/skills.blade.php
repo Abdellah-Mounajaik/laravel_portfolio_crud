@@ -8,6 +8,7 @@
   <div class="container">
     <div class="section-title">
       <h2>Skills</h2>
+      <a href="{{route('skills.create')}}">Ajout d'un Skill</a>
     </div>
     <div class="row skills-content">
       @foreach ($skills as $skills)
@@ -19,7 +20,11 @@
           </div>
         </div>
         <button class="btn btn-primary text-center"><a class="text-white" href="{{route('skills.edit', $skills->id)}}">Modifier</a></button>
-
+        <form method="POST" action="{{route('skills.delete', $skills->id)}}">
+          @csrf
+          @method('DELETE')
+          <button class="btn btn-danger mt-3">Supprimer</button>
+        </form>
       </div>
       @endforeach
     </div>

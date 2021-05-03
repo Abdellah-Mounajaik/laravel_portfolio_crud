@@ -15,7 +15,7 @@ class AboutSeeder extends Seeder
     public function run()
     {
         DB::table('about')->insert([
-            "image" => "img/profile-img.jpg",
+            "image" => "profile-img.jpg",
             "titre"=> "About",
             "soustitre"=> "UI/UX Designer & Web Developer.",
             "birthday"=> "1 May 1995",
